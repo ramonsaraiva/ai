@@ -1,3 +1,7 @@
+---
+type: "always_apply"
+---
+
 # Django Guidelines
 
 These guidelines ensure that all Django-related code is maintainable, idiomatic, and consistent with the architecture and tooling used in this environment.
@@ -44,6 +48,10 @@ These guidelines ensure that all Django-related code is maintainable, idiomatic,
 - Customize error pages (`404.html`, `500.html`, etc.) to improve user experience.
 - Use signals (e.g., `post_save`, `got_request_exception`) to decouple logging and side effects from views.
 
+## Exceptions
+
+- When using `logger` to log catched exceptios, prefer using `logger.execption` instead of `logger.error` because it will automatically add context about the exception that was caught.
+
 ## Testing
 
 - Tests should live in a `tests/` folder within each Django app, with filenames like `test_<filename>.py`.
@@ -51,6 +59,7 @@ These guidelines ensure that all Django-related code is maintainable, idiomatic,
   Example: `test_sum_numbers_negative_numbers()`
 - Use `model_bakery.baker.make` to create model instances—never create them manually with the ORM.
 - You may omit model imports in tests when using `baker.make('app.ModelName')`.
+- Prioritize Django asserts (i.e.: assertLogs) over simple asserts.
 
 ## Background Tasks and Caching
 

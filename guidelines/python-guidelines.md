@@ -1,3 +1,7 @@
+---
+type: "always_apply"
+---
+
 # Python Guidelines: Key Principles & Code Style
 
 These guidelines ensure code generated or edited by LLMs adheres to high-quality, maintainable, and idiomatic Python practices.
